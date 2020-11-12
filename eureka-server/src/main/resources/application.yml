@@ -1,0 +1,17 @@
+server:
+  port: 8761 #这个表示的是服务的端口号
+
+spring:
+  application:
+    name: eureka-server #配置应用的名称
+
+eureka: #配置注册中心
+  instance:
+    hostname: localhost #主机名
+  client:
+    register-with-eureka: false #是否注册到Eereka服务注册中心,现在自己就是注册中心，不用注册
+    fetch-registry: false #是否从当前应用检索服务。同上。
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka #提供外部交互的地址
+      # ${eureka.instance.hostname} 等价于localhost
+      # ${server.port} 等价于8761
